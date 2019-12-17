@@ -3440,7 +3440,7 @@ void MainWindow::error(QAbstractSocket::SocketError /* socketError */)
     for(int num = 0; num < project.ecu->topLevelItemCount (); num++)
     {
         EcuItem *ecuitem = (EcuItem*)project.ecu->topLevelItem(num);
-        if( ecuitem && ecuitem->socket == sender())
+        if( ecuitem && ecuitem->socket && ecuitem->socket == sender())
         {
             /* save error */
             ecuitem->connectError = ecuitem->socket->errorString();
